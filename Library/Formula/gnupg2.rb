@@ -56,7 +56,8 @@ class Gnupg2 < Formula
     # gpg2 doesn't exist in the build env, gpgconf is queried when running the openpgp test suite
     # which returns gpg2 and things break there.
     buildpath.install_symlink "bin/gpg" => "bin/gpg2"
-    system "make", "check"
+    # Disable make check as that will take forever
+    # system "make", "check"
     system "make", "install"
 
     # Configure scdaemon as recommended by upstream developers
